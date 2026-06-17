@@ -10,16 +10,39 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack {
-            var greetings = ["Look who finally decided to show up.", "Oh, great, you’re back. The data missed you.", "Error 404: Motivation not found.", "Welcome back. Try not to break anything today.", "Still here? The servers are behaving.", "Look out, the main character has logged in.", "Your data has been expecting you, Captain.", "Grab some coffee. We have worlds to conquer.", "Warning: High levels of productivity ahead.", "Human detected. Initializing friendly protocol.", "My algorithms predict you will do great things.", "I kept the seat warm for you. Figuratively.", "Loading your digital empire. Hold your applause.", "Beep boop. Translation: Welcome back.", "Ah, my favorite distraction. Welcome back.", "Tap anywhere to pretend you are working.", "Glad you're here. I was getting bored.", "Less scrolling, more doing. Just kidding.", "Please insert coffee to continue.", "The data is ready. Are you?"]
-            var randomInt = Int.random(in: 0 ..< greetings.count)
-            var greeting = greetings[randomInt]
+            let greetings = ["Look who finally decided to show up.", "Oh, great, you’re back. The data missed you.", "Look out, the main character has logged in.", "Your data has been expecting you, Captain.", "Warning: High levels of productivity ahead.", "My algorithms predict you will do great things.", "Loading your digital empire.", "The data is ready. Are you?"]
+            let randomInt = Int.random(in: 0 ..< greetings.count-1)
+            let greeting = greetings[randomInt]
             Text(greeting)
                 .font(.largeTitle)
             
+            Text("Ready for your next lesson?")
+            HStack {
+                Button {
+                    
+                } label: {
+                    Text(Constants.firstLesson)
+                        .frame(width: 100, height: 50)
+                        .foregroundStyle(Color("textColor"))
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .stroke(Color("buttonColor"),lineWidth:5)
+                            
+                        }
+                }
+                Button {
+                    
+                } label: {
+                    Text(Constants.secondLesson)
+                        .pinkButton()
+                        }
+                }
+                
+            }
         }
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
-}
+ 
 
 #Preview {
     HomeView()
