@@ -10,21 +10,21 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView{
-            Tab("Home",systemImage: "house"){
-                Text("Home")
+            Tab(Constants.home,systemImage: Constants.homeIcon){
+                Text(Constants.home)
                 Image("watercolor-music-note")
             }
-            Tab("Streak",systemImage:"flame"){
-                Text("Streak")
+            Tab(Constants.streak,systemImage: Constants.streakIcon){
+                Text(Constants.streak)
             }
-            Tab("Shop",systemImage:"building"){
-                Text("Shop")
+            Tab(Constants.shop,systemImage: Constants.shopIcon){
+                Text(Constants.shop)
             }
-            Tab("Friends",systemImage:"heart"){
-                Text("Friends")
+            Tab(Constants.friends,systemImage: Constants.friendsIcon){
+                Text(Constants.friends)
             }
-            Tab("Profile",systemImage:"person"){
-                Text("Profile")
+            Tab(Constants.profile, systemImage: Constants.profileIcon){
+                Text(Constants.profile)
             }
         }
     }
