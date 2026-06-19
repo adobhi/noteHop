@@ -25,6 +25,11 @@ struct Constants {
     static let color1 = "20D5C6"
     static let color2 = "FFADFE"
     static let color3 = "FAFFAD"
+    
+    static let musicImageURL = "https://t3.ftcdn.net/jpg/05/85/10/62/360_F_585106274_GbJNWuJ9gnj93G19sRT4eK54ojKysO0t.jpg"
+    static let music1 = "Can You Hear the Music"
+    static let music2 = "Despacito"
+    static let music3 = "Golden Hour"
 }
 
 extension Text {

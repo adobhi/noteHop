@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F1ACA1FD2FE58BC700569B79 /* HorizontalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACA1FC2FE58BC700569B79 /* HorizontalListView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F101B39F2FD5E914006E46D6 /* Note Hop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Note Hop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1ACA1FC2FE58BC700569B79 /* HorizontalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 		F101B3962FD5E913006E46D6 = {
 			isa = PBXGroup;
 			children = (
+				F1ACA1FC2FE58BC700569B79 /* HorizontalListView.swift */,
 				F101B3A12FD5E914006E46D6 /* Note Hop */,
 				F101B3A02FD5E914006E46D6 /* Products */,
 			);
@@ -119,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1ACA1FD2FE58BC700569B79 /* HorizontalListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
