@@ -18,7 +18,7 @@ struct HomeView: View {
             let randomInt = Int.random(in: 0 ..< greetings.count-1)
             let greeting = greetings[randomInt]
             Text(greeting)
-                .font(.largeTitle)
+                .font(.custom("DynaPuff-Regular", size: 50))
             
             Spacer()
             
