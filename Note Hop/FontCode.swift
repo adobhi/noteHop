@@ -9,9 +9,15 @@ import SwiftUI
 
 struct FontCode: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                .font(.custom("DynaPuff-Regular", size: 50))
+                .padding()
+            Text("Hello, Coder!")
+                .cuteFont(100)
+                .padding()
+        }
     }
-    
     init() {
         for fam in UIFont.familyNames {
             print(fam)
