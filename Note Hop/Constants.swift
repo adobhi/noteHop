@@ -26,21 +26,30 @@ struct Constants {
     static let color2 = "FFADFE"
     static let color3 = "FAFFAD"
     
-    static let musicImageURL = "https://t3.ftcdn.net/jpg/05/85/10/62/360_F_585106274_GbJNWuJ9gnj93G19sRT4eK54ojKysO0t.jpg"
+    static let noteImageURL = "https://t3.ftcdn.net/jpg/05/85/10/62/360_F_585106274_GbJNWuJ9gnj93G19sRT4eK54ojKysO0t.jpg"
+    static let sheetMusicImageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnXTJJ2JNIGfYwld9ET-ebuGM_uD-ZRiJW0iL-tR6mSA&s=10"
     static let music1 = "Can You Hear the Music"
     static let music2 = "Despacito"
     static let music3 = "Golden Hour"
 }
 
-extension Text {
+extension View {
     func pinkButton() -> some View{
         self
-            .frame(width: 100, height: 50)
+            .frame(width: 150, height: 100)
             .foregroundStyle(Color("textColor"))
-            .bold()
+            //.bold()
             .background{
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .stroke(Color("buttonColor"),lineWidth:5)
             }
+    }
+}
+
+extension Text {
+    func cuteFont(_ num: Double) -> some View{
+        self
+            .font(.custom("DynaPuff-Regular", size: num))
+            .padding(.horizontal, 20)
     }
 }

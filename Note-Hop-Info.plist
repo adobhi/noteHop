@@ -4,7 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>/Users/Anvi/Downloads/DynaPuff/DynaPuff-VariableFont_wdth,wght.ttf</string>
+		<string>DynaPuff-VariableFont_wdth,wght.ttf</string>
 	</array>
 </dict>
 </plist>
