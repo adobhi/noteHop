@@ -14,7 +14,7 @@ struct FontCode: View {
                 .font(.custom("DynaPuff-Regular", size: 50))
                 .padding()
             Text("Hello, Coder!")
-                .cuteFont(100)
+                .cuteFont(100,20)
                 .padding()
         }
     }

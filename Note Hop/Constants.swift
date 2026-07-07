@@ -47,9 +47,9 @@ extension View {
 }
 
 extension Text {
-    func cuteFont(_ num: Double) -> some View{
+    func cuteFont(_ num: Double, _ pad: Double) -> some View{
         self
             .font(.custom("DynaPuff-Regular", size: num))
-            .padding(.horizontal, 20)
+            .padding(.horizontal, pad)
     }
 }
