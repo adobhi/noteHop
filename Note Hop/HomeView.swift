@@ -43,12 +43,14 @@ struct HomeView: View {
                 
                 Text("Pick up where you left off?")
                     .cuteFont(30)
-                    //.padding(.leading,20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading,20)
                 HStack (){
                     Button {
                         
                     } label: {
                         sheetMusicButton(sheetMusicImage1)
+                            .padding(.leading,20)
                     }
                     
                     Button {
@@ -62,22 +64,42 @@ struct HomeView: View {
                 
                 Text("Let's see how you're doing?")
                     .cuteFont(30)
+                    .padding(20)
 
                 HStack (){
                     Button {
                         
                     } label: {
-                        Text(Constants.music1)
-                            .cuteFont(20)
-                            .pinkButton()
+                        Image("fire")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(10)
+                        .scaledToFit()
+                        .clipped()
+                            .frame(width:100, height: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color("buttonColor"), lineWidth: 5)
+                            )
                                 
                     }
+                    .padding(.leading, 20)
                     Button {
                         
                     } label: {
-                        Text(Constants.secondLesson)
-                            .cuteFont(20)
-                            .pinkButton()
+                        Image("gem")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(10)
+                            .scaledToFit()
+                            .clipped()
+                                .frame(width:100, height: 100)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color("buttonColor"), lineWidth: 5)
+                                )
                     }
                 }
                 
@@ -94,9 +116,10 @@ struct HomeView: View {
             let greeting = greetings[randomInt]
             Text(greeting)
                 .cuteFont(40)
+                .foregroundStyle(Color("bannerFont"))
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color("buttonColor")
+                .background(Color("bannerColor")
                     .ignoresSafeArea(edges: .top))
         }
         
