@@ -29,6 +29,7 @@ struct Constants {
     static let noteImageURL = "https://t3.ftcdn.net/jpg/05/85/10/62/360_F_585106274_GbJNWuJ9gnj93G19sRT4eK54ojKysO0t.jpg"
     static let sheetMusicImageURL1 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnXTJJ2JNIGfYwld9ET-ebuGM_uD-ZRiJW0iL-tR6mSA&s=10"
     static let sheetMusicImageURL2 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO-jsaOyyX1-GTceGJHFx-1Gwzy66nhR6K5Feb_zbYkA&s=10"
+    static let sheetMusicImageURL3 = "https://musescore.com/static/musescore/scoredata/g/9269211375d672b1dbaff1f592dd10ac942dbf0f/score_0.svg?no-cache=1753951781"
     static let music1 = "Can You Hear the Music"
     static let music2 = "Despacito"
     static let music3 = "Golden Hour"
@@ -49,8 +50,7 @@ extension View {
 
 extension View {
     func sheetMusicButton(_ music: String) -> some View{
-        AsyncImage(url: URL(string: music)) { image in
-            image
+        Image(music)
             //.resizable()
                 .scaledToFill()
                 //.padding(.horizontal, pad)
@@ -61,16 +61,31 @@ extension View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color("buttonColor"), lineWidth: 5)
                 )
-        } placeholder: {
-            ProgressView()
-        }
+        } 
     }
-}
+
 
 extension Text {
     func cuteFont(_ num: Double) -> some View{
         self
             .font(.custom("DynaPuff-Regular", size: num))
             //.padding(.horizontal, pad)
+    }
+}
+
+extension View {
+    func statsButton(_ pic: String) -> some View{
+        Image(pic)
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .padding(10)
+        .scaledToFit()
+        .clipped()
+            .frame(width:100, height: 100)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color("buttonColor"), lineWidth: 5)
+            )
     }
 }
