@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    var noteImage = Constants.noteImageURL
-    var sheetMusicImage1 = Constants.sheetMusicImageURL1
-    var sheetMusicImage2 = Constants.sheetMusicImageURL2
+    //var noteImage = Constants.noteImageURL
+    //var sheetMusicImage1 = Constants.sheetMusicImageURL1
+    //var sheetMusicImage2 = Constants.sheetMusicImageURL2
+    //var sheetMusicImage3 = Constants.sheetMusicImageURL3
     
     var body: some View {
         ScrollView {
@@ -49,14 +50,21 @@ struct HomeView: View {
                     Button {
                         
                     } label: {
-                        sheetMusicButton(sheetMusicImage1)
+                        sheetMusicButton("theEntertainer")
                             .padding(.leading,20)
                     }
                     
                     Button {
                         
                     } label: {
-                        sheetMusicButton(sheetMusicImage2)
+                        sheetMusicButton("canYouHear")
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        sheetMusicButton("goldenHour")
+                        
                     }
                 }
                 
@@ -70,36 +78,15 @@ struct HomeView: View {
                     Button {
                         
                     } label: {
-                        Image("fire")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(10)
-                        .scaledToFit()
-                        .clipped()
-                            .frame(width:100, height: 100)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color("buttonColor"), lineWidth: 5)
-                            )
+                        statsButton("fire")
+                        
                                 
                     }
                     .padding(.leading, 20)
                     Button {
                         
                     } label: {
-                        Image("gem")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding(10)
-                            .scaledToFit()
-                            .clipped()
-                                .frame(width:100, height: 100)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color("buttonColor"), lineWidth: 5)
-                                )
+                        statsButton("gem")
                     }
                 }
                 
