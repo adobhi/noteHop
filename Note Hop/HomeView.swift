@@ -53,7 +53,7 @@ struct HomeView: View {
                         sheetMusicButton("theEntertainer")
                             .padding(.leading,20)
                     }
-                    
+
                     Button {
                         
                     } label: {
