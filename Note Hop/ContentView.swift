@@ -11,8 +11,8 @@ struct ContentView: View {
     var body: some View {
         TabView{
             Tab(Constants.home,systemImage: Constants.homeIcon){
-                Text(Constants.home)
-                Image("watercolor-music-note")
+                HomeView()
+                //Image("watercolor-music-note")
             }
             Tab(Constants.streak,systemImage: Constants.streakIcon){
                 Text(Constants.streak)
