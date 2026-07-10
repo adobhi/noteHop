@@ -1,0 +1,142 @@
+//
+//  SheetMusicDraft.swift
+//  Note Hop
+//
+//  Created by Anvi Dobhal on 7/9/26.
+//
+
+import SwiftUI
+import PDFKit
+
+struct Song: Identifiable {
+    let id = UUID()
+    let filename: String
+    let title: String
+    let composer: String
+    let lessonInfo: String
+}
+
+struct SongDetailView: View{
+    let song: Song
+    
+    var body: some View {
+        ScrollView{
+            VStack(alignment: .leading, spacing: 20){
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(song.title)
+                        .cuteFont(40)
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.primary)
+                    Text("Composed by \(song.composer)")
+                        .cuteFont(20)
+                        .font(.title3)
+                        .italic()
+                        .foregroundColor(.secondary)
+                    
+                }
+                .padding(.horizontal)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Lesson Notes")
+                        .cuteFont(20)
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                    Text(song.lessonInfo)
+                        .cuteFont(20)
+                        .font(.body)
+                        .foregroundColor(.black)
+                }
+                .padding()
+                .background(Color.blue.opacity(0.1))
+                .cornerRadius(12)
+                .padding(.horizontal)
+                
+                Text("Sheet Music")
+                    .cuteFont(40)
+                    .font(.title2)
+                    .bold()
+                    .padding(.horizontal)
+                SheetMusicDraft(pdfFileName: song.filename)
+                    .frame(height: 500)
+                    .cornerRadius(12)
+                    .shadow(radius: 4)
+                    .padding(.horizontal)
+            }
+            .padding(.vertical)
+        }
+        .background(Color(.systemGroupedBackground))
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+
+struct SheetMusicDraft: UIViewRepresentable {
+    let pdfFileName: String
+    
+    func makeUIView(context: Context) -> PDFView{
+        let pdfView = PDFView()
+        if let fileURL = Bundle.main.url(forResource: pdfFileName, withExtension: "pdf") {
+            pdfView.document = PDFDocument(url: fileURL)
+        } else {
+            print("Oops! Could not find a file named \(pdfFileName).pdf in the app.")
+        }
+        pdfView.autoScales = true
+        return pdfView
+    }
+    
+    func updateUIView(_ uiView: PDFView, context: Context){}
+    
+    
+}
+
+struct DraftView: View {
+    //let songs = ["golden_hour", "can_you_hear_the_music"]
+    let myLibrary = [
+        Song(filename: "golden_hour",
+             title: "Golden Hour",
+             composer: "JVKE",
+             lessonInfo: "Watch the E Major (four sharps...) key signature! "),
+        Song(filename: "can_you_hear_the_music",
+             title: "Can You Hear The Music",
+             composer: "Ludwig Goransson",
+             lessonInfo: "The metronome is your best friend with all the tempo changes! ")
+    ]
+    
+    var body: some View {
+        NavigationStack {
+            VStack {
+                Text("Music Library")
+                    .cuteFont(50)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding([.top, .leading], 20)
+                List(myLibrary) { song in
+                    NavigationLink(destination: SongDetailView(song: song)) {
+                        HStack {
+                            Image(systemName: "music.note.list")
+                                //.foregroundColor(.blue)
+                                .font(.title3)
+                            VStack(alignment: .leading) {
+                                Text(song.title)
+                                    .cuteFont(20)
+                                    .font(.headline)
+                                Text(song.composer)
+                                    .cuteFont(20)
+                                    .font(.subheadline)
+                                    //.foregroundColor(.secondary)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
+                //.navigationTitle("Music Library")
+                
+            }
+        }
+    }
+}
+
+#Preview {
+    DraftView()
+}
