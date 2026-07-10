@@ -13,7 +13,7 @@ struct Constants {
     static let streak = "Streak"
     static let shop = "Shop"
     static let friends = "Friends"
-    static let profile = "profile"
+    static let profile = "Profile"
     
     static let homeIcon = "house"
     static let streakIcon = "flame"
