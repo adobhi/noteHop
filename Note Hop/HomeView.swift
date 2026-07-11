@@ -106,7 +106,7 @@ struct HomeView: View {
                 .foregroundStyle(Color("bannerFont"))
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color("bannerColor")
+                .background(Color("lightColor")
                     .ignoresSafeArea(edges: .top))
         }
         

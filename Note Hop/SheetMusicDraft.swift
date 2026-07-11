@@ -35,29 +35,35 @@ struct SongDetailView: View{
                         .font(.title3)
                         .italic()
                         .foregroundColor(.secondary)
+                    Text("Instrument: \(song.instrument)")
+                        .cuteFont(20)
+                        .font(.title3)
+                        .italic()
+                        .foregroundColor(.secondary)
                     
                 }
                 .padding(.horizontal)
+                .padding(.top,60)
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Lesson Notes")
-                        .cuteFont(20)
+                        .cuteFont(25)
                         .font(.headline)
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color("textColor"))
                     Text(song.lessonInfo)
                         .cuteFont(20)
                         .font(.body)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("textColor"))
                 }
                 .padding()
-                .background(Color.blue.opacity(0.1))
+                .background(Color("lightColor").opacity(0.3))
                 .cornerRadius(12)
                 .padding(.horizontal)
                 
                 Text("Sheet Music")
                     .cuteFont(40)
                     .font(.title2)
-                    .bold()
+                    //.bold()
                     .padding(.horizontal)
                 SheetMusicDraft(pdfFileName: song.filename)
                     .frame(height: 500)
@@ -67,8 +73,9 @@ struct SongDetailView: View{
             }
             .padding(.vertical)
         }
-        .background(Color(.systemGroupedBackground))
-        .navigationBarTitleDisplayMode(.inline)
+        //.background(Color(.systemGroupedBackground))
+        //.navigationBarTitleDisplayMode(.inline)
+        
     }
 }
 
@@ -98,16 +105,12 @@ struct DraftView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Music Library")
-                    .cuteFont(50)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.top, .leading], 20)
+            //VStack {
                 List(myLibrary) { song in
                     NavigationLink(destination: SongDetailView(song: song)) {
                         HStack {
                             Image(systemName: "music.note.list")
-                                //.foregroundColor(.blue)
+                                .foregroundColor(Color("aqua"))
                                 .font(.title3)
                             VStack(alignment: .leading) {
                                 Text(song.title)
@@ -125,10 +128,20 @@ struct DraftView: View {
                         }
                         .padding(.vertical, 4)
                     }
-                }
+                //}
                 //.navigationTitle("Music Library")
                 
             }
+                .padding(.top, 80)
+        }
+        .safeAreaInset(edge: .top, spacing: 0) {
+            Text("Music Library")
+                .cuteFont(50)
+                .foregroundStyle(Color("bannerFont"))
+                .padding(20)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color("lightColor")
+                    .ignoresSafeArea(edges: .top))
         }
     }
 }

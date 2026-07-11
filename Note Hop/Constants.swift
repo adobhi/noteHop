@@ -43,7 +43,7 @@ extension View {
             //.bold()
             .background{
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .stroke(Color("buttonColor"),lineWidth:5)
+                    .stroke(Color("heavyColor"),lineWidth:5)
             }
     }
 }
@@ -59,7 +59,7 @@ extension View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color("buttonColor"), lineWidth: 5)
+                        .stroke(Color("heavyColor"), lineWidth: 5)
                 )
         } 
     }
@@ -85,7 +85,7 @@ extension View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color("buttonColor"), lineWidth: 5)
+                    .stroke(Color("heavyColor"), lineWidth: 5)
             )
     }
 }
