@@ -13,6 +13,7 @@ struct Song: Identifiable {
     let filename: String
     let title: String
     let composer: String
+    let instrument: String
     let lessonInfo: String
 }
 
@@ -93,16 +94,7 @@ struct SheetMusicDraft: UIViewRepresentable {
 
 struct DraftView: View {
     //let songs = ["golden_hour", "can_you_hear_the_music"]
-    let myLibrary = [
-        Song(filename: "golden_hour",
-             title: "Golden Hour",
-             composer: "JVKE",
-             lessonInfo: "Watch the E Major (four sharps...) key signature! "),
-        Song(filename: "can_you_hear_the_music",
-             title: "Can You Hear The Music",
-             composer: "Ludwig Goransson",
-             lessonInfo: "The metronome is your best friend with all the tempo changes! ")
-    ]
+    let myLibrary = Library.myLibrary
     
     var body: some View {
         NavigationStack {
@@ -124,7 +116,11 @@ struct DraftView: View {
                                 Text(song.composer)
                                     .cuteFont(20)
                                     .font(.subheadline)
-                                    //.foregroundColor(.secondary)
+                                    .foregroundColor(.secondary)
+                                Text(song.instrument)
+                                    .cuteFont(20)
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
                             }
                         }
                         .padding(.vertical, 4)

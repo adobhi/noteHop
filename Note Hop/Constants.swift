@@ -89,3 +89,42 @@ extension View {
             )
     }
 }
+
+
+struct Library {
+    static let myLibrary = [Song(filename: "golden_hour",
+                          title: "Golden Hour",
+                          composer: "JVKE",
+                          instrument: "Piano",
+                          lessonInfo: "Watch the E Major (four sharps...) key signature! "),
+                     Song(filename: "can_you_hear_the_music",
+                          title: "Can You Hear The Music",
+                          composer: "Ludwig Goransson",
+                          instrument: "Piano",
+                          lessonInfo: "The metronome is your best friend with all the tempo changes! "),
+                     Song(filename: "the_entertainer",
+                          title: "The Entertainer",
+                          composer: "Scott Joplin",
+                          instrument: "Piano",
+                          lessonInfo: "idk man figure it out"),
+                     Song(filename: "babydoll",
+                          title: "Babydoll",
+                          composer: "Dominic Fike",
+                          instrument: "Piano",
+                          lessonInfo: "idk man figure it out"),
+                     Song(filename: "fairytale",
+                          title: "Fairytale",
+                          composer: "Alexander Rybak",
+                          instrument: "Violin",
+                          lessonInfo: "idk man figure it out"),
+                     Song(filename: "love_story",
+                          title: "Love Story",
+                          composer: "Indila",
+                          instrument: "Piano",
+                          lessonInfo: "idk man figure it out"),
+                     Song(filename: "in_this_shirt",
+                          title: "In This Shirt",
+                          composer: "The Irrepressibles",
+                          instrument: "Violin",
+                          lessonInfo: "idk man figure it out")]
+}
