@@ -20,9 +20,24 @@ struct Song: Identifiable {
 struct SongDetailView: View{
     let song: Song
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         ScrollView{
             VStack(alignment: .leading, spacing: 20){
+                
+                Button(action: {
+                  dismiss()
+                }) {
+                    HStack {
+                        Image(systemName: "arrow.left.circle.fill")
+                            .font(.title2)
+                        Text("Back to Music Library")
+                            .cuteFont(40)
+                    }
+                    .foregroundColor(.blue)
+                    .padding(.vertical, 8)
+                }
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(song.title)
