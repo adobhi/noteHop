@@ -31,12 +31,14 @@ struct SongDetailView: View{
                 }) {
                     HStack {
                         Image(systemName: "arrow.left.circle.fill")
+                            .foregroundStyle(Color("aqua"))
                             .font(.title2)
                         Text("Back to Music Library")
-                            .cuteFont(40)
+                            .cuteFont(20)
+                            .foregroundColor(Color("aqua"))
                     }
-                    .foregroundColor(.blue)
-                    .padding(.vertical, 8)
+                    .padding(.top,60)
+                    .padding(.leading,20)
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
@@ -58,7 +60,7 @@ struct SongDetailView: View{
                     
                 }
                 .padding(.horizontal)
-                .padding(.top,60)
+                //.padding(.top,5)
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Lesson Notes")

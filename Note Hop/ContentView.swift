@@ -14,10 +14,13 @@ struct ContentView: View {
                 HomeView()
                 //Image("watercolor-music-note")
             }
-            Tab(Constants.streak,systemImage: Constants.streakIcon){
-                Text(Constants.streak)
+            //Tab(Constants.streak,systemImage: Constants.streakIcon){
+                //Text(Constants.streak)
+            //}
+            Tab(Constants.library, systemImage: Constants.libraryIcon) {
+                DraftView()
             }
-            Tab(Constants.shop,systemImage: Constants.shopIcon){
+            Tab(Constants.shop,systemImage: "building"){
                 Text(Constants.shop)
             }
             Tab(Constants.friends,systemImage: Constants.friendsIcon){
