@@ -14,12 +14,14 @@ struct Constants {
     static let shop = "Shop"
     static let friends = "Friends"
     static let profile = "Profile"
+    static let library = "Library"
     
     static let homeIcon = "house"
     static let streakIcon = "flame"
     static let shopIcon = "building"
     static let friendsIcon = "heart"
     static let profileIcon = "person"
+    static let libraryIcon = "book"
     static var firstLesson = "Course 1 Next Lesson"
     static var secondLesson = "Course 2 Next Lesson"
     static let color1 = "20D5C6"
@@ -40,24 +42,25 @@ extension View {
         self
             .frame(width: 150, height: 100)
             .foregroundStyle(Color("textColor"))
-            //.bold()
+        //.bold()
             .background{
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .stroke(Color("heavyColor"),lineWidth:5)
             }
+        
     }
 }
 
 extension View {
     func sheetMusicButton(_ music: String) -> some View{
         Image(music)
-            //.resizable()
-                .scaledToFill()
-                //.padding(.horizontal, pad)
-            //.clipped()
-                .frame(width:100, height: 150)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .overlay(
+            .resizable()
+            .scaledToFill()
+            //.padding(.horizontal, pad)
+            .frame(width:100, height: 150)
+            .clipped()
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color("heavyColor"), lineWidth: 5)
                 )
