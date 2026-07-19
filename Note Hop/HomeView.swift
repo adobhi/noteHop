@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    //var noteImage = Constants.noteImageURL
-    //var sheetMusicImage1 = Constants.sheetMusicImageURL1
-    //var sheetMusicImage2 = Constants.sheetMusicImageURL2
-    //var sheetMusicImage3 = Constants.sheetMusicImageURL3
+    let greetings = ["Look who finally decided to show up", "Oh, great, you’re back. The data missed you", "Look out, the main character has logged in", "Your data has been expecting you, Captain", "Warning: High levels of productivity ahead", "My algorithms predict you will do great things", "Loading your digital empire", "The data is ready. Are you?"]
+    @State private var randomGreeting: String = ""
     
     var body: some View {
+        NavigationStack {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
                 Spacer()
@@ -37,7 +36,7 @@ struct HomeView: View {
                             .cuteFont(20)
                             .pinkButton()
                     }
-
+                    
                 }
                 
                 Spacer()
@@ -46,41 +45,41 @@ struct HomeView: View {
                     .cuteFont(30)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading,20)
-                HStack (){
-                    Button {
+                    HStack {
+                        NavigationLink {
+                            SongDetailView(song: Constants.theEntertainer)
+                        } label: {
+                            sheetMusicButton("theEntertainer")
+                                .padding(.leading,20)
+                        }
                         
-                    } label: {
-                        sheetMusicButton("theEntertainer")
-                            .padding(.leading,20)
+                        NavigationLink {
+                            SongDetailView(song: Constants.canYouHear)
+                        } label: {
+                            sheetMusicButton("canYouHear")
+                        }
+                        
+                        NavigationLink {
+                            SongDetailView(song: Constants.goldenHour)
+                        } label: {
+                            sheetMusicButton("goldenHour")
+                            
+                        }
                     }
-
-                    Button {
-                        
-                    } label: {
-                        sheetMusicButton("canYouHear")
-                    }
-                    
-                    Button {
-                        
-                    } label: {
-                        sheetMusicButton("goldenHour")
-                        
-                    }
-                }
                 
                 Spacer()
                 
                 Text("Let's see how you're doing?")
                     .cuteFont(30)
                     .padding(20)
-
+                
                 HStack (){
                     Button {
                         
                     } label: {
                         statsButton("fire")
                         
-                                
+                        
                     }
                     .padding(.leading, 20)
                     Button {
@@ -95,10 +94,11 @@ struct HomeView: View {
                 
             }
             .frame(maxWidth: .infinity)
-
+            
         }
+            
         .safeAreaInset(edge: .top, spacing: 0) {
-            let greetings = ["Look who finally decided to show up", "Oh, great, you’re back. The data missed you", "Look out, the main character has logged in", "Your data has been expecting you, Captain", "Warning: High levels of productivity ahead", "My algorithms predict you will do great things", "Loading your digital empire", "The data is ready. Are you?"]
+
             let randomInt = Int.random(in: 0 ..< greetings.count-1)
             let greeting = greetings[randomInt]
             Text(greeting)
@@ -109,6 +109,12 @@ struct HomeView: View {
                 .background(Color("lightColor")
                     .ignoresSafeArea(edges: .top))
         }
+    }
+        .onAppear {
+            let randomInt = Int.random(in: 0..<greetings.count)
+            randomGreeting = greetings[randomInt]
+        }
+        
         
     }
 }

@@ -20,8 +20,8 @@ struct ContentView: View {
             Tab(Constants.library, systemImage: Constants.libraryIcon) {
                 DraftView()
             }
-            Tab(Constants.shop,systemImage: "building"){
-                Text(Constants.shop)
+            Tab("Courses",systemImage: "building"){
+                CoursePaths()
             }
             Tab(Constants.friends,systemImage: Constants.friendsIcon){
                 Text(Constants.friends)
