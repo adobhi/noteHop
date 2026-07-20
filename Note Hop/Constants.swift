@@ -72,6 +72,26 @@ struct Constants {
                                   composer: "The Irrepressibles",
                                   instrument: "Violin",
                                   lessonInfo: "idk man figure it out")
+    
+    static let trebleQuestionsCDE: [Question] = [
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["C", "D", "E", "A"], correctOptionIndex: 0),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["D", "F", "C", "B"], correctOptionIndex: 2),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["A", "C", "G", "E"], correctOptionIndex: 1),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["C", "B", "D", "G"], correctOptionIndex: 0),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_d4", options: ["C", "D", "B", "G"], correctOptionIndex: 1),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_d4", options: ["D", "A", "F", "E"], correctOptionIndex: 0),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_d4", options: ["B", "G", "C", "D"], correctOptionIndex: 3),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_e4", options: ["F", "D", "G", "E"], correctOptionIndex: 3),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_e4", options: ["E", "C", "B", "D"], correctOptionIndex: 0),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_e4", options: ["C", "G", "E", "A"], correctOptionIndex: 2),
+        
+        
+        /*(Question(title: "Identify the note on the treble clef staff.", imageName: "treble_g4", options: ["E", "G", "B", "F"], correctOptionIndex: 1),
+        Question(title: "Identify the note on the bass clef staff.", imageName: "bass_e3", options: ["C", "G", "E", "D"], correctOptionIndex: 2),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["Middle C", "D", "E", "A"], correctOptionIndex: 0),
+        Question(title: "Identify the note on the bass clef staff.", imageName: "bass_f3", options: ["B", "D", "G", "F"], correctOptionIndex: 3),
+        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c5", options: ["E", "C", "F", "G"], correctOptionIndex: 1)*/
+    ]
 
     
 }

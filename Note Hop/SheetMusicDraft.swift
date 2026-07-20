@@ -139,6 +139,20 @@ struct SheetMusicDraft: UIViewRepresentable {
 struct DraftView: View {
     let myLibrary = Library.myLibrary
     
+    /* @State private var searchText = ""
+    var filterNames: [Song] {
+        if searchText.isEmpty {
+            return myLibrary
+        } else {
+            return myLibrary.filter { song in
+                song.title.localizedStandardContains(searchText) ||
+                song.composer.localizedStandardContains(searchText) ||
+                song.instrument.localizedStandardContains(searchText)
+            }
+        }
+    }
+    */
+    
     var body: some View {
         NavigationStack {
                 List(myLibrary) { song in
@@ -165,6 +179,7 @@ struct DraftView: View {
                     }
                 
             }
+                //.searchable(text: $searchText, prompt: "Search title, composer, or instrument!")
                 .safeAreaInset(edge: .top, spacing: 0) {
                     Text("Music Library")
                         .cuteFont(50)
