@@ -73,7 +73,7 @@ struct Constants {
                                   instrument: "Violin",
                                   lessonInfo: "idk man figure it out")
     
-    static let trebleQuestionsCDE: [Question] = [
+    /* static let trebleQuestionsCDE: [Question] = [
         Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["C", "D", "E", "A"], correctOptionIndex: 0),
         Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["D", "F", "C", "B"], correctOptionIndex: 2),
         Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["A", "C", "G", "E"], correctOptionIndex: 1),
@@ -91,7 +91,7 @@ struct Constants {
         Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["Middle C", "D", "E", "A"], correctOptionIndex: 0),
         Question(title: "Identify the note on the bass clef staff.", imageName: "bass_f3", options: ["B", "D", "G", "F"], correctOptionIndex: 3),
         Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c5", options: ["E", "C", "F", "G"], correctOptionIndex: 1)*/
-    ]
+    ] */
 
     
 }

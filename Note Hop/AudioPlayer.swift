@@ -3,49 +3,66 @@ import SwiftUI
 import AVKit
 
 struct AudioPlayer: View {
-    let audioNAme = "a4"
     
-    @State private var player: AVAudioPlayer?
+    var player: AVAudioPlayer?
+    let audioName: String
+    let noteImage: String
+    
+    @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlaying = false
+    @State private var totalTime: TimeInterval = 0.0
     
     
     var body: some View {
-        ZStack {
-            Color.black.edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                Text("a4")
-                
-                VStack(spacing: 20) {
-                    Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                        .onTapGesture {
-                            if isPlaying {
+        Image(noteImage)
+            //.font(.largeTitle)
+            .resizable()
+            .scaledToFit()
+            .frame(height: 180)
+            .background(Color(.systemGray6))
+            .cornerRadius(16)
+            .shadow(radius: 2)
+            .padding(.horizontal)
+            .onTapGesture {
+                            /*if isPlaying {
                                 stopAudio()
                             } else {
                                 playAudio()
                             }
-                        }
-                }
-            }
-            .foregroundColor(.white)
-            
+            */
+                playAudio()
+        }
+        .onAppear(perform: setupAudio)
+    }
+    
+    private func setupAudio() {
+    guard let url = Bundle.main.url(forResource: audioName, withExtension: "mp3") else {
+            return
+        }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            totalTime = audioPlayer?.duration ?? 0.0
+        } catch {
+            print("Error loading audio: \(error)")
         }
     }
     
+    
     private func playAudio() {
-        player?.play()
+        audioPlayer?.play()
         isPlaying = true
     }
     
     private func stopAudio() {
-        player?.pause()
+        audioPlayer?.pause()
         isPlaying = false
     }
     
 }
     struct Prev: PreviewProvider {
         static var previews: some View {
-            AudioPlayer()
+            //AudioPlayer(audioName: "a4", noteImage: )
         }
     }
 
