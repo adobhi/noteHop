@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Violin: View{
+struct Piano: View{
     let trebleBank = Constants.trebleBank
     let bassBank = Constants.bassBank
 
@@ -82,6 +82,6 @@ struct Violin: View{
 
 
 #Preview {
-    Violin()
+    Piano()
 }
 
