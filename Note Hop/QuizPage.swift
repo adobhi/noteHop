@@ -7,10 +7,12 @@ struct Question: Identifiable {
     let imageName: String // The name of the image asset in Xcode
     let options: [String]
     let correctOptionIndex: Int // 0-indexed representation of the correct choice
+    let tone: String
 }
 
+
 struct QuizPage: View {
-    
+    @Environment(\.dismiss) private var dismiss
     
     // 3. Quiz State Variables
     @State private var currentQuestionIndex = 0
@@ -43,7 +45,7 @@ struct QuizPage: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color("lightColor"))
+                            .background(Color("heavyColor"))
                             .cornerRadius(12)
                     }
                     .padding(.horizontal, 40)
@@ -55,12 +57,24 @@ struct QuizPage: View {
                 
                 VStack(spacing: 20) {
                     // Header / Progress Tracker
-                    HStack {
-                        Text("Musical Notation")
+                    HStack(spacing: 12){
+                        
+                        Button(action: {
+                            dismiss()
+                        }) { Image(systemName: "xmark.circle.fill")
+                                .foregroundStyle(Color("bannerFont"))
+                                //.background(Color("lightColor"))
+                                .font(.title2)
+                                .padding(.leading,15)
+                                }
+                        
+                        /*Text("Musical Notation")
                             .cuteFont(25)
                             .font(.headline)
                             .foregroundColor(.secondary)
+                         */
                         Spacer()
+            
                         Text("Q: \(currentQuestionIndex + 1)/\(questionBank.count)")
                             .cuteFont(25)
                             .font(.headline)
@@ -75,18 +89,8 @@ struct QuizPage: View {
                         //.bold()
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
-                    
-                    // --- Image Section ---
-                    // This dynamically loads the note image based on the question asset name
-                    
-                    Image(currentQuestion.imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 180)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(16)
-                        .shadow(radius: 2)
-                        .padding(.horizontal)
+
+                    AudioPlayer(audioName: currentQuestion.tone, noteImage: currentQuestion.imageName)
                     
                     // Options List
                     VStack(spacing: 12) {
@@ -152,6 +156,9 @@ struct QuizPage: View {
                 .padding(.vertical)
             }
         }
+
+            
+        
         .onAppear {
             questionBank.shuffle()
         }
