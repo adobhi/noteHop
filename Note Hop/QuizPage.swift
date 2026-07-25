@@ -26,29 +26,44 @@ struct QuizPage: View {
     var body: some View {
         ZCornerBackground {
             if quizComplete {
-                // Score Summary Page
-                VStack(spacing: 24) {
-                    Text("Quiz Complete! 🎉")
-                        .cuteFont(50)
-                        .font(.system(.largeTitle, design: .rounded))
-                        .bold()
-                    
-                    Text("You scored \(score) out of \(questionBank.count)")
-                        .cuteFont(30)
-                        .font(.title2)
-                        .foregroundColor(.secondary)
-                    
-                    Button(action: restartQuiz) {
-                        Text("Try Again")
-                            .cuteFont(30)
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color("heavyColor"))
-                            .cornerRadius(12)
+                VStack {
+                    Button(action: {
+                        dismiss()
+                    }) { Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(Color("bannerFont"))
+                        //.background(Color("lightColor"))
+                            .frame(maxWidth: .infinity, alignment: .leading) // Fills width, aligns left
+
+                            .font(.title2)
+                            .padding(.leading,15)
                     }
-                    .padding(.horizontal, 40)
+                    Spacer()
+                    // Score Summary Page
+                    VStack(spacing: 24) {
+                        
+                        Text("Quiz Complete! 🎉")
+                            .cuteFont(50)
+                            .font(.system(.largeTitle, design: .rounded))
+                            .bold()
+                        
+                        Text("You scored \(score) out of \(questionBank.count)")
+                            .cuteFont(30)
+                            .font(.title2)
+                            .foregroundColor(.secondary)
+                        
+                        Button(action: restartQuiz) {
+                            Text("Try Again")
+                                .cuteFont(30)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color("heavyColor"))
+                                .cornerRadius(12)
+                        }
+                        .padding(.horizontal, 40)
+                    }
+                    Spacer()
                 }
                 .padding()
             } else {
