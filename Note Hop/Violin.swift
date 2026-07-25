@@ -8,92 +8,77 @@
 import SwiftUI
 
 struct Violin: View{
-    //let song: Song
-    
+    let trebleBank = Constants.trebleBank
+    let bassBank = Constants.bassBank
+
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        ScrollView{
-            VStack(alignment: .leading, spacing: 24){
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Violin")
-                        .cuteFont(40)
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundColor(.primary)
-                    
-                }
-                //.padding(.horizontal)
-                //.padding(.top,5)
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Lesson Notes")
-                        .cuteFont(25)
-                        .font(.headline)
-                        .foregroundColor(Color("textColor"))
-                    Text(song.lessonInfo)
-                        .cuteFont(20)
-                        .font(.body)
-                        .foregroundColor(Color("textColor"))
-                }
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color("lightColor").opacity(0.3))
-                .cornerRadius(12)
-                .padding(.trailing,20)
-                
-                VStack(alignment: .leading, spacing: 24){
-                Text("Sheet Music")
-                    .cuteFont(40)
-                    .font(.title2)
-                    .padding(.horizontal)
-                SheetMusicDraft(pdfFileName: song.filename)
-                    .frame(height: 500)
-                    .cornerRadius(12)
-                    .shadow(radius: 4)
-                    .padding(.horizontal)
-                    .padding(.leading, -20)
-            }
-        }
-
-                .padding(.top,20)
-                .padding(.leading,20)
-            
-    }
-        
-            .navigationBarBackButtonHidden(true)
-            .safeAreaInset(edge: .top, spacing: 0) {
-                HStack {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "arrow.left.circle.fill")
-                            .foregroundStyle(Color("bannerFont"))
-                            .background(Color("lightColor"))
-                            .font(.title2)
-                            .padding(.leading,15)
+        NavigationStack {
+            List {
+                Section {
+                    ForEach(trebleBank.bigBank.indices, id: \.self) { index in let singleQuizArray = trebleBank.bigBank[index]
+                        NavigationLink(destination: QuizPage(questionBank: singleQuizArray.bank)){
+                            HStack {
+                                Image(systemName: "music.note.list")
+                                    .foregroundColor(Color("black"))
+                                    .font(.title3)
+                                VStack(alignment: .leading) {
+                                    Text(singleQuizArray.title)
+                                        .cuteFont(25)
+                                }
+                            }
+                            .padding(.vertical, 4)
+                        }
+                        
                     }
-                    .padding(.leading, 2)
-                    
-                    
-                Text("Music Library")
-                    .cuteFont(50)
-                    .foregroundStyle(Color("bannerFont"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color("lightColor")
-                        .ignoresSafeArea(edges: .top))
+                } header: {
+                    Text("Reading the Treble Clef")
+                        .cuteFont(30)
+                }
+                Section {
+                    Text(bassBank.title)
+                        .cuteFont(30)
+                    ForEach(bassBank.bigBank.indices, id: \.self) { index in let singleQuizArray = bassBank.bigBank[index]
+                        NavigationLink(destination: QuizPage(questionBank: singleQuizArray.bank)){
+                            HStack {
+                                Image(systemName: "music.note.list")
+                                    .foregroundColor(Color("black"))
+                                    .font(.title3)
+                                VStack(alignment: .leading) {
+                                    Text(singleQuizArray.title)
+                                        .cuteFont(25)
+                                }
+                            }
+                            .padding(.vertical, 4)
+                        }
+                        
+                    }
             }
-                .padding(.vertical,20)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color("lightColor")
-                    .ignoresSafeArea(edges: .top))
+                header: {
+                    Text(bassBank.title)
+                        .cuteFont(30)
+                }
         }
-            
-
-                
-        }
+                //.searchable(text: $searchText, prompt: "Search title, composer, or instrument!")
+            .safeAreaInset(edge: .top, spacing: 0) {
+                HStack(spacing: 0) {
+                    Text("Violin")
+                        .cuteFont(50)
+                        .foregroundStyle(Color("bannerFont"))
+                        .padding(20)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Image("violin")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 100)
+                }
+                .background(Color("lightColor"))
+            }        }
+        
     }
+}
 
 
 #Preview {

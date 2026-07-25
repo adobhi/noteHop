@@ -7,13 +7,26 @@
 
 import SwiftUI
 
-struct Bank: View {
-    
-    static let trebleBank: [[Question]] = [QuestionBanks.trebleQuestionsCDE, QuestionBanks.trebleQuestionsFGA, QuestionBanks.trebleQuestionsBC]
+struct Bank: Identifiable {
+    let id = UUID()
+    let title: String
+    let bigBank: [bankWrapper]
+    init(title: String, banks: bankWrapper...) {
+            self.title = title
+            self.bigBank = banks
+        }
+
+    /* static let trebleBank: [[Question]] = [QuestionBanks.trebleQuestionsCDE, QuestionBanks.trebleQuestionsFGA, QuestionBanks.trebleQuestionsBC]
     static let bassBank: [[Question]] = [QuestionBanks.bassQuestionsCDE, QuestionBanks.bassQuestionsFGA, QuestionBanks.bassQuestionsBC]
-    var body: some View {
-        Text("Hello!")
+     */
+    
+     
     }
+
+struct bankWrapper: Identifiable {
+    let id = UUID()
+    let title: String
+    let bank: [Question]
 }
 
 
@@ -97,14 +110,6 @@ struct QuestionBanks: View {
             Question(title: "Identify the note on the bass clef staff.", imageName: "bass_c4", options: ["E", "C", "G", "A"], correctOptionIndex: 1, tone: "c4"),
         ]
     
-        
-        /*
-        Question(title: "Identify the note on the bass clef staff.", imageName: "bass_e3", options: ["C", "G", "E", "D"], correctOptionIndex: 2),
-        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c4", options: ["Middle C", "D", "E", "A"], correctOptionIndex: 0),
-        Question(title: "Identify the note on the bass clef staff.", imageName: "bass_f3", options: ["B", "D", "G", "F"], correctOptionIndex: 3),
-        Question(title: "Identify the note on the treble clef staff.", imageName: "treble_c5", options: ["E", "C", "F", "G"], correctOptionIndex: 1)*/
-    
-    
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -112,5 +117,5 @@ struct QuestionBanks: View {
 }
 
 #Preview {
-    //QuizPage(questionBank: trebleQuestionsFGA)
+    QuizPage(questionBank: QuestionBanks.trebleQuestionsFGA)
 }

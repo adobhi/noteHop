@@ -9,6 +9,18 @@ import Foundation
 import SwiftUI
 
 struct Constants {
+    
+    static let trebleBank = Bank(title: "Reading the Treble Clef", banks: wrappedTrebleCDE, wrappedTrebleFGA, wrappedTrebleBC)
+    static let wrappedTrebleCDE = bankWrapper(title: "Learn to Read: C, D, and E", bank: QuestionBanks.trebleQuestionsCDE)
+    static let wrappedTrebleFGA = bankWrapper(title: "Learn to Read: F, G, A", bank: QuestionBanks.trebleQuestionsFGA)
+    static let wrappedTrebleBC = bankWrapper(title: "Learn to Read: B and High C", bank: QuestionBanks.trebleQuestionsBC)
+    
+    static let bassBank = Bank(title: "Reading the Bass Clef", banks: wrappedBassCDE, wrappedBassFGA, wrappedBassBC)
+    static let wrappedBassCDE = bankWrapper(title: "Learn to Read: C, D, and E", bank: QuestionBanks.bassQuestionsCDE)
+    static let wrappedBassFGA = bankWrapper(title: "Learn to Read: F, G, A", bank: QuestionBanks.bassQuestionsFGA)
+    static let wrappedBassBC = bankWrapper(title: "Learn to Read: B and High C", bank: QuestionBanks.bassQuestionsBC)
+    
+    
     static let home = "Home"
     static let streak = "Streak"
     static let shop = "Shop"
@@ -153,9 +165,16 @@ extension View {
 }
 
 
+struct QuizSection: Identifiable {
+    let id = UUID()
+    let questions: [Question]
+}
+
+
 struct Library {
+    
     static let myLibrary: [Song] = [
-        Song(filename: "golden_21qwsxhour",
+        Song(filename: "golden_hour",
              title: "Golden Hour",
              composer: "JVKE",
              instrument: "Piano",

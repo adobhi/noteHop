@@ -58,7 +58,6 @@ struct QuizPage: View {
                 VStack(spacing: 20) {
                     // Header / Progress Tracker
                     HStack(spacing: 12){
-                        
                         Button(action: {
                             dismiss()
                         }) { Image(systemName: "xmark.circle.fill")
@@ -156,6 +155,7 @@ struct QuizPage: View {
                 .padding(.vertical)
             }
         }
+        .navigationBarBackButtonHidden(true)
 
             
         
