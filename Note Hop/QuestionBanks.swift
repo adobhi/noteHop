@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+struct Bank: View {
+    
+    static let trebleBank: [[Question]] = [QuestionBanks.trebleQuestionsCDE, QuestionBanks.trebleQuestionsFGA, QuestionBanks.trebleQuestionsBC]
+    static let bassBank: [[Question]] = [QuestionBanks.bassQuestionsCDE, QuestionBanks.bassQuestionsFGA, QuestionBanks.bassQuestionsBC]
+    var body: some View {
+        Text("Hello!")
+    }
+}
+
+
 struct QuestionBanks: View {
     
     static let trebleQuestionsCDE: [Question] = [
