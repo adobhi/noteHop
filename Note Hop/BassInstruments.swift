@@ -1,14 +1,15 @@
 //
-//  Violin.swift
+//  BassInstruments.swift
 //  Note Hop
 //
-//  Created by Anvi Dobhal on 7/24/26.
+//  Created by Anvi Dobhal on 7/25/26.
 //
 
 import SwiftUI
 
-struct Piano: View{
-    let trebleBank = Constants.trebleBank
+struct BassInstruments: View {
+    let title: String
+    let instrumentImage: String
     let bassBank = Constants.bassBank
     var moveOverPic: Int? = nil
     var nameSize: Double? = nil
@@ -18,26 +19,6 @@ struct Piano: View{
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    ForEach(trebleBank.bigBank.indices, id: \.self) { index in let singleQuizArray = trebleBank.bigBank[index]
-                        NavigationLink(destination: QuizPage(questionBank: singleQuizArray.bank)){
-                            HStack {
-                                Image(systemName: "music.note.list")
-                                    .foregroundColor(Color("black"))
-                                    .font(.title3)
-                                VStack(alignment: .leading) {
-                                    Text(singleQuizArray.title)
-                                        .cuteFont(25)
-                                }
-                            }
-                            .padding(.vertical, 4)
-                        }
-                        
-                    }
-                } header: {
-                    Text("Reading the Treble Clef")
-                        .cuteFont(30)
-                }
                 Section {
                     ForEach(bassBank.bigBank.indices, id: \.self) { index in let singleQuizArray = bassBank.bigBank[index]
                         NavigationLink(destination: QuizPage(questionBank: singleQuizArray.bank)){
@@ -75,14 +56,14 @@ struct Piano: View{
                     }
                     HStack(spacing: 0) {
                         
-                        Text("Piano")
+                        Text(title)
                             .cuteFont(CGFloat(nameSize ?? 40))
                             .foregroundStyle(Color("bannerFont"))
                         //.padding(20)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 20)
                         
-                        Image("piano")
+                        Image(instrumentImage)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 160, height: 100)
@@ -98,8 +79,6 @@ struct Piano: View{
     }
 }
 
-
 #Preview {
-    Piano()
+    //BassInstruments(title: "Cello", instrumentImage: "cello")
 }
-
