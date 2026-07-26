@@ -72,6 +72,7 @@ struct TrebleInstruments: View {
 
                 .background(Color("lightColor"))
             }        }
+        .toolbar(.hidden, for: .tabBar)
         .navigationBarBackButtonHidden(true)
 
         

@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F17C4A332FFC887600635A97 /* DynaPuff-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F17C4A322FFC886C00635A97 /* DynaPuff-VariableFont_wdth,wght.ttf */; };
+		F12810923016B64600BF7F58 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F12810913016B64600BF7F58 /* FirebaseAuth */; };
+		F12810943016B64600BF7F58 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F12810933016B64600BF7F58 /* FirebaseCore */; };
+		F12810963016B64600BF7F58 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F12810953016B64600BF7F58 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F101B39F2FD5E914006E46D6 /* Note Hop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Note Hop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F17C4A322FFC886C00635A97 /* DynaPuff-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DynaPuff-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -28,6 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F12810943016B64600BF7F58 /* FirebaseCore in Frameworks */,
+				F12810923016B64600BF7F58 /* FirebaseAuth in Frameworks */,
+				F12810963016B64600BF7F58 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,7 +41,6 @@
 		F101B3962FD5E913006E46D6 = {
 			isa = PBXGroup;
 			children = (
-				F17C4A312FFC883F00635A97 /* Font group! */,
 				F101B3A12FD5E914006E46D6 /* Note Hop */,
 				F101B3A02FD5E914006E46D6 /* Products */,
 			);
@@ -49,14 +52,6 @@
 				F101B39F2FD5E914006E46D6 /* Note Hop.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		F17C4A312FFC883F00635A97 /* Font group! */ = {
-			isa = PBXGroup;
-			children = (
-				F17C4A322FFC886C00635A97 /* DynaPuff-VariableFont_wdth,wght.ttf */,
-			);
-			path = "Font group!";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -79,6 +74,9 @@
 			);
 			name = "Note Hop";
 			packageProductDependencies = (
+				F12810913016B64600BF7F58 /* FirebaseAuth */,
+				F12810933016B64600BF7F58 /* FirebaseCore */,
+				F12810953016B64600BF7F58 /* FirebaseFirestore */,
 			);
 			productName = "Note Hop";
 			productReference = F101B39F2FD5E914006E46D6 /* Note Hop.app */;
@@ -108,6 +106,9 @@
 			);
 			mainGroup = F101B3962FD5E913006E46D6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F12810903016B64600BF7F58 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F101B3A02FD5E914006E46D6 /* Products */;
 			projectDirPath = "";
@@ -123,7 +124,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F17C4A332FFC887600635A97 /* DynaPuff-VariableFont_wdth,wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,17 +272,17 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Note-Hop-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Note Hop";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kwk.Note-Hop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anvidobhal.notehop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -305,17 +305,17 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Note-Hop-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Note Hop";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kwk.Note-Hop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anvidobhal.notehop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -349,6 +349,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F12810903016B64600BF7F58 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.16.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F12810913016B64600BF7F58 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F12810903016B64600BF7F58 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F12810933016B64600BF7F58 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F12810903016B64600BF7F58 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		F12810953016B64600BF7F58 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F12810903016B64600BF7F58 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F101B3972FD5E913006E46D6 /* Project object */;
 }

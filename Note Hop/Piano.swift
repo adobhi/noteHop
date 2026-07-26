@@ -54,13 +54,13 @@ struct Piano: View{
                         }
                         
                     }
-            }
+                }
                 header: {
                     Text(bassBank.title)
                         .cuteFont(30)
                 }
-        }
-                //.searchable(text: $searchText, prompt: "Search title, composer, or instrument!")
+            }
+            //.searchable(text: $searchText, prompt: "Search title, composer, or instrument!")
             .safeAreaInset(edge: .top, spacing: 0) {
                 VStack {
                     Button(action: {
@@ -88,10 +88,12 @@ struct Piano: View{
                             .frame(width: 160, height: 100)
                             .offset(x: CGFloat(moveOverPic ?? 0),y:-10)
                     }
-            }
+                }
                 
                 .background(Color("lightColor"))
-            }        }
+            }
+        }
+        .toolbar(.hidden, for: .tabBar)
         .navigationBarBackButtonHidden(true)
 
         
