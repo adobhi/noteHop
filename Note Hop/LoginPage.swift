@@ -22,7 +22,6 @@ struct LoginPage: View {
                         .cuteFont(30)
                         .frame(width: 300)
                         .multilineTextAlignment(.center)
-                        //.frame(maxWidth: .infinity, alignment: .center)
                 }
             }
             .frame(maxWidth: .infinity * 3)
