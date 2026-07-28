@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LoginPage: View {
     
-    @State var email = ""
-    @State var password = ""
+    @StateObject var viewModel = LoginViewViewModel()
     
     var body: some View {
         NavigationStack{
@@ -36,9 +35,12 @@ struct LoginPage: View {
                 
                 //Login Form
                 Form {
-                    TextField("Email Address", text: $email)
+                    TextField("Email Address", text: $viewModel.email)
                         .textFieldStyle(DefaultTextFieldStyle())
-                    SecureField("Password", text: $password)
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
+                    
+                    SecureField("Password", text: $viewModel.password)
                         .textFieldStyle(DefaultTextFieldStyle())
                     Button {
                         
@@ -54,7 +56,6 @@ struct LoginPage: View {
                     }
                     
                 }
-                //Spacer()
                 
                 //Create Account
                 VStack {
@@ -69,7 +70,6 @@ struct LoginPage: View {
                 }
                 .padding(.top, 2)
                 
-                Spacer()
             }
         }
     }
