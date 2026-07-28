@@ -43,7 +43,7 @@ struct LoginPage: View {
                     SecureField("Password", text: $viewModel.password)
                         .textFieldStyle(DefaultTextFieldStyle())
                     Button {
-                        
+                        viewModel.login()
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
