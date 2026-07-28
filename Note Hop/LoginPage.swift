@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct LoginPage: View {
+    
+    @State var email = ""
+    @State var password = ""
+    
     var body: some View {
         NavigationStack{
             VStack {
+                //Header
                 ZStack {
                     RoundedRectangle(cornerRadius: 0)
                         .foregroundColor(Color("lightAqua"))
@@ -28,8 +33,49 @@ struct LoginPage: View {
                 }
                 .frame(maxWidth: .infinity * 3)
                 .frame(height: 300)
+                
+                //Login Form
+                Form {
+                    TextField("Email Address", text: $email)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                    SecureField("Password", text: $password)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                    Button {
+                        
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color("lightColor"))
+                            Text("Log In")
+                                .foregroundColor(Color("bannerFont"))
+                                .cuteFont(20)
+                                .padding(8)
+                        }
+                    }
+                    
+                }
+                //Spacer()
+                
+                //Create Account
+                VStack {
+                    Text("New around here?")
+                        .cuteFont(25)
+                    NavigationLink(destination: RegisterView()) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color("lightColor"))
+                                .frame(width: 350)
+                                .frame(height: 40)
+                            Text("Create an account")
+                                .foregroundColor(Color("bannerFont"))
+                                .cuteFont(20)
+                                .padding(8)
+                        }
+                    }
+                }
+                
+                Spacer()
             }
-            Spacer()
         }
     }
 }
