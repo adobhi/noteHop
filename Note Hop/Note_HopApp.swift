@@ -18,6 +18,6 @@ struct Note_HopApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: UserDraft.self)
+        //.modelContainer(for: UserDraft.self)
     }
 }
