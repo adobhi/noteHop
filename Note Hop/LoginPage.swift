@@ -31,10 +31,18 @@ struct LoginPage: View {
                     }
                 }
                 .frame(maxWidth: .infinity * 3)
-                .frame(height: 300)
+                .frame(height: 380)
+                .ignoresSafeArea(edges: .top)
                 
                 //Login Form
+                
                 Form {
+                    if !viewModel.error.isEmpty {
+                        Text(viewModel.error)
+                            .cuteFont(20)
+                            .background(Color("lightPink"))
+                            .foregroundColor(Color("textColor"))
+                    }
                     TextField("Email Address", text: $viewModel.email)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .autocapitalization(.none)
@@ -54,8 +62,12 @@ struct LoginPage: View {
                                 .padding(8)
                         }
                     }
-                    
                 }
+                .scrollDisabled(true)
+                .scrollContentBackground(.hidden)
+
+                Spacer()
+                //.frame(height: 250)
                 
                 //Create Account
                 VStack {
@@ -71,6 +83,7 @@ struct LoginPage: View {
                 .padding(.top, 2)
                 
             }
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
     }
 }

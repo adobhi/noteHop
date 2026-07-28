@@ -75,11 +75,10 @@ struct RegisterView: View {
                                 .padding(8)
                         }
                     }
-                    
                 }
-                
+                .scrollContentBackground(.hidden)
+
                 }
-                
                 Spacer()
             }
         .navigationBarBackButtonHidden(true)
