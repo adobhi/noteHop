@@ -61,18 +61,13 @@ struct LoginPage: View {
                     Text("New around here?")
                         .cuteFont(25)
                     NavigationLink(destination: RegisterView()) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color("lightColor"))
-                                .frame(width: 350)
-                                .frame(height: 40)
                             Text("Create an account")
-                                .foregroundColor(Color("bannerFont"))
-                                .cuteFont(20)
-                                .padding(8)
+                                .foregroundColor(Color("heavyColor"))
+                                .cuteFont(25)
+                                .padding(.top, 2)
                         }
-                    }
                 }
+                .padding(.top, 2)
                 
                 Spacer()
             }
