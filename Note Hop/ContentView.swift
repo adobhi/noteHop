@@ -8,27 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ContentViewModel()
     var body: some View {
-        TabView{
-            Tab(Constants.home,systemImage: Constants.homeIcon){
-                HomeView()
-                //Image("watercolor-music-note")
-            }
-            //Tab(Constants.streak,systemImage: Constants.streakIcon){
-                //Text(Constants.streak)
-            //}
-            Tab(Constants.library, systemImage: Constants.libraryIcon) {
-                DraftView()
-            }
-            Tab("Courses",systemImage: "building"){
-                CoursePaths()
-            }
-            Tab(Constants.friends,systemImage: Constants.friendsIcon){
-                Text(Constants.friends)
-            }
-            Tab(Constants.profile, systemImage: Constants.profileIcon){
-                Text(Constants.profile)
-            }
+        if viewModel.isSignedIn, !viewModel.currentUserID.isEmpty{
+            //signed in page!
+            MainTabView()
+        } else {
+            LoginPage()
         }
     }
 }
