@@ -21,7 +21,7 @@ struct MainTabView: View {
                 DraftView()
             }
             Tab("Courses",systemImage: "building"){
-                CoursePaths()
+                InstrumentDashboardView()
             }
             Tab(Constants.friends,systemImage: Constants.friendsIcon){
                 Text(Constants.friends)
