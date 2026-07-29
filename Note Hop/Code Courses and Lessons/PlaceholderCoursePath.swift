@@ -1,7 +1,8 @@
-//  CoursePaths.swift
+//
+//  PlaceholderCoursePath.swift
 //  Note Hop
 //
-//  Created by Anvi Dobhal on 7/13/26.
+//  Created by Anvi Dobhal on 7/28/26.
 //
 
 import SwiftUI
