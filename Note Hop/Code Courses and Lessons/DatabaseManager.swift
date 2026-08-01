@@ -46,4 +46,26 @@ class DatabaseManager: ObservableObject {
             print("Error saving to Firebase: \(error)")
         }
     }
+    
+    //Fetches all courses saved by user!
+    @Published var savedCourses: [UserCourse] = []
+    
+    func fetchUserCourses () async {
+        guard let uid = currentUserId else {
+            return
+        }
+        do {
+            let snapshot = try await db.collection("users")
+                .document(uid)
+                .collection("courses")
+                .getDocuments()
+            self.savedCourses = snapshot.documents.compactMap { document in
+                try? document.data(as: UserCourse.self)
+            }
+        } catch {
+            print("Error fetching courses: \(error)")
+        }
+    }
+    
+    
 }

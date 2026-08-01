@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import Combine
+import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 
 struct HomeView: View {
+    private let db = Firestore.firestore()
+    
     let greetings = ["Look who finally decided to show up", "Oh, great, you’re back. The data missed you", "Look out, the main character has logged in", "Your data has been expecting you, Captain", "Warning: High levels of productivity ahead", "My algorithms predict you will do great things", "Loading your digital empire", "The data is ready. Are you?"]
     @State private var randomGreeting: String = ""
     
@@ -20,7 +26,7 @@ struct HomeView: View {
                 Text("Ready for your next lesson?")
                     .cuteFont(30)
                     .padding(.leading, 20)
-                HStack {
+                /* HStack {
                     Button {
                         
                     } label: {
@@ -37,7 +43,8 @@ struct HomeView: View {
                             .pinkButton()
                     }
                     
-                }
+                } */
+                SavedCourses(db: DatabaseManager())
                 
                 Spacer()
                 

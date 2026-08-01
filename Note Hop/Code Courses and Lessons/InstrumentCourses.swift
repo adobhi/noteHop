@@ -12,4 +12,5 @@ struct InstrumentCourse: Identifiable {
     let name: String
     let icon: String
     let color: String
+    let range: String;
 }

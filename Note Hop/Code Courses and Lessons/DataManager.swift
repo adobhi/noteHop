@@ -55,8 +55,9 @@ class DataManager: ObservableObject {
                     let name = data["name"] as? String ?? ""
                     let icon = data["icon"] as? String ?? ""
                     let color = data["color"] as? String ?? ""
+                    let 
                     
-                    let course = InstrumentCourse(name: name, icon: icon, color: color)
+                    let course = InstrumentCourse(name: name, icon: icon, color: color, range: )
                     self.courses.append(course)
                 }
             }
