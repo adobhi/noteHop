@@ -48,7 +48,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Text("Pick up where you left off?")
+                Text("Let's look at some sheet music!")
                     .cuteFont(30)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading,20)
@@ -73,9 +73,8 @@ struct HomeView: View {
                             
                         }
                     }
-                
                 Spacer()
-                
+                /*
                 Text("Let's see how you're doing?")
                     .cuteFont(30)
                     .padding(20)
@@ -97,7 +96,7 @@ struct HomeView: View {
                 }
                 
                 Spacer()
-                
+                */
                 
             }
             .frame(maxWidth: .infinity)

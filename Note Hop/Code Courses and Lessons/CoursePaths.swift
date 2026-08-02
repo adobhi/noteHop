@@ -14,7 +14,7 @@ struct Courses: View {
     
     let course:
     
-    InstrumentCourse
+    UserCourse
     @ObservedObject var db: DatabaseManager
     @State private var isEnrolled = false
     
@@ -27,7 +27,7 @@ struct Courses: View {
                         .frame(width: 150, height: 150)
                         .padding(15)
                     VStack {
-                        Text(course.name)
+                        Text(course.courseTitle)
                             .foregroundStyle(.black)
                             .cuteFont(25)
                         Image(course.icon)
@@ -42,7 +42,11 @@ struct Courses: View {
                 // Add Course Action Button
                 Button(action: {
                     Task {
-                        await db.enrollInCourse(courseId: course.id, title: course.name)
+                        await db.enrollInCourse(
+                            courseId: course.id ?? "",
+                            title: course.courseTitle,
+                            range: course.range,
+                            icon: course.icon)
                         withAnimation {
                             isEnrolled = true
                         }
@@ -80,14 +84,14 @@ struct InstrumentDashboardView: View {
     
     // Sample static catalog of instrument courses available to learn
     let availableCourses = [
-        InstrumentCourse(name: "Violin", icon: "violin", color: "heavyAqua", range: "Treble"),
-        InstrumentCourse(name: "Piano", icon: "piano", color: "heavyYellow", range: "Piano"),
-        InstrumentCourse(name: "Flute", icon: "flute", color: "heavyPink", range: "Treble"),
-        InstrumentCourse(name: "Alto Saxophone", icon: "sax", color: "heavyAqua", range: "Treble"),
-        InstrumentCourse(name: "Trumpet", icon: "trumpet", color: "heavyYellow", range: "Treble"),
-        InstrumentCourse(name: "Clarinet", icon: "clarinet", color: "heavyPink", range: "Treble"),
-        InstrumentCourse(name: "Cello", icon: "cello", color: "heavyAqua", range: "Bass"),
-        InstrumentCourse(name: "More Coming Soon", icon: "music.quarternote", color: "heavyYellow", range: "Treble")
+        UserCourse(id: "1", courseTitle: "Violin", icon: "violin", range: "Treble", color: "heavyAqua"),
+        UserCourse(id: "2", courseTitle: "Piano", icon: "piano", range: "Piano", color: "heavyYellow"),
+        UserCourse(id: "3", courseTitle: "Flute", icon: "flute", range: "Treble", color: "heavyPink"),
+        UserCourse(id: "4", courseTitle: "Alto Saxophone", icon: "sax", range: "Treble", color: "heavyAqua"),
+        UserCourse(id: "5", courseTitle: "Trumpet", icon: "trumpet", range: "Treble", color: "heavyYellow"),
+        UserCourse(id: "6", courseTitle: "Clarinet", icon: "clarinet", range: "Treble", color: "heavyPink"),
+        UserCourse(id: "7", courseTitle: "Cello", icon: "cello", range: "Bass", color: "heavyAqua"),
+        UserCourse(id: "8", courseTitle: "More Coming Soon", icon: "music.quarternote", range: "Treble", color: "heavyYellow")
     ]
     
     // Defines a two-column responsive grid layout
@@ -124,58 +128,52 @@ struct InstrumentDashboardView: View {
 
 struct SavedCourses: View {
     @ObservedObject var db: DatabaseManager
-    
     var body: some View {
         VStack(alignment: .leading) {
             if db.savedCourses.isEmpty {
-                ContentUnavailableView(
-                    "No Courses Saved",
-                    systemImage: "music.note",
-                    description: Text("Go to the dashboard to add some instrument courses!")
-                )
+                VStack {
+                    Image(systemName: "music.note")
+                        .font(.system(size:40))
+                    Text("No Courses Saved")
+                        .cuteFont(25)
+                        //.foregroundColor(.secondary)
+                        .padding(.bottom,5)
+                    Text("Go to the courses tab to add some new courses!")
+                        .cuteFont(20)
+                        .multilineTextAlignment(.center)
+                        //.foregroundColor(.secondary)
+
+                }
+                .padding(.leading, 20)
                 .padding(.vertical, 20)
             } else {
                 NavigationStack{
                     ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack(spacing: 15) {
+                        LazyHStack() {
                             ForEach(db.savedCourses) { course in
                                 HStack {
                                     NavigationLink {
-                                        if course.range == "Treble" {
-                                            TrebleInstruments(title: course.courseTitle,instrumentImage: course.icon)
-                                        } else if course.range == "Bass" {
-                                            BassInstruments(title: course.courseTitle,instrumentImage: course.icon)
+                                        if course.range == "Piano" {
+                                            Piano()
                                             
+                                        } else if course.range == "Treble" {
+                                            TrebleInstruments(title: course.courseTitle,instrumentImage: course.icon)
                                         }
                                         else {
-                                            Piano()
+                                            BassInstruments(title: course.courseTitle,instrumentImage: course.icon)
                                         }
                                     } label: {
                                         Text(course.courseTitle)
-                                            .cuteFont(20)
+                                            .cuteFont(25)
                                             .pinkButton()
                                     }
-                                    .padding(.leading,20)
-                                    
                                 }
-                                /* HStack(spacing: 12) {
-                                 Image(systemName: "music.note.list")
-                                 .font(.title2)
-                                 
-                                 VStack(alignment: .leading, spacing: 4) {
-                                 Text(course.courseTitle)
-                                 .cuteFont(30)
-                                 Text("Enrolled on \(course.enrolledAt.formatted(date: .abbreviated, time: .omitted))")
-                                 .cuteFont(20)
-                                 .foregroundStyle(.secondary)
-                                 }
-                                 } */
-                                .padding()
-                                .background(Color(.secondarySystemBackground))
+                                .padding(4)
+                                .padding(.trailing, 2)
                                 .cornerRadius(12)
                             }
+                            .padding(.leading, 12)
                         }
-                        .padding(.horizontal, 20)
                     }
                 }
             }

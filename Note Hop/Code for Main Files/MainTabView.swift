@@ -23,12 +23,14 @@ struct MainTabView: View {
             Tab("Courses",systemImage: "building"){
                 InstrumentDashboardView()
             }
+            /*
             Tab(Constants.friends,systemImage: Constants.friendsIcon){
                 Text(Constants.friends)
             }
             Tab(Constants.profile, systemImage: Constants.profileIcon){
                 Text(Constants.profile)
-            }
+             }
+             */
         }
     }
 }

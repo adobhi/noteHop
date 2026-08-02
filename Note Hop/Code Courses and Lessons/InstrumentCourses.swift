@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct InstrumentCourse: Identifiable {
+struct InstrumentCourses: Identifiable {
     let id = UUID()
+    //let id: String
     let name: String
     let icon: String
     let color: String
-    let range: String;
+    let range: String
 }

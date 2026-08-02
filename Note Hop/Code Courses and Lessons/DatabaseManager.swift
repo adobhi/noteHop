@@ -5,6 +5,8 @@
 //  Created by Anvi Dobhal on 7/28/26.
 //
 
+
+
 import SwiftUI
 import Combine
 import Foundation
@@ -15,7 +17,10 @@ import FirebaseAuth
 struct UserCourse: Codable, Identifiable {
     @DocumentID var id: String?
     var courseTitle: String
-    var enrolledAt: Date
+    var icon: String
+    var range: String
+    var color: String
+    //var enrolledAt: Date
 }
 
 @MainActor
@@ -27,19 +32,24 @@ class DatabaseManager: ObservableObject {
     }
     
     // The missing function your instrument squares are looking for
-    func enrollInCourse(courseId: UUID, title: String) async {
+    func enrollInCourse(courseId: String, title: String, range: String, icon: String) async {
         guard let uid = currentUserId else {
             print("No logged in user found!")
             return
         }
         
-        let courseData = UserCourse(courseTitle: title, enrolledAt: Date())
+        let courseData = UserCourse(
+                                    id: courseId,
+                                    courseTitle: title,
+                                    icon: icon,
+                                    range: range,
+                                    color: "pink")
         
         do {
             try db.collection("users")
                 .document(uid)
                 .collection("courses")
-                .document(courseId.uuidString)
+                .document(courseId)
                 .setData(from: courseData)
             print("Successfully saved \(title) to Firebase!")
         } catch {
@@ -69,3 +79,4 @@ class DatabaseManager: ObservableObject {
     
     
 }
+
