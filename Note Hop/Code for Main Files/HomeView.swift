@@ -97,6 +97,12 @@ struct HomeView: View {
                 
                 Spacer()
                 */
+                Text("Take a break when your ready!")
+                    .cuteFont(30)
+                    .padding(20)
+                Logout()
+                    .pinkButton()
+                    .padding(.leading, 20)
                 
             }
             .frame(maxWidth: .infinity)
