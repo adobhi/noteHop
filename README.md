@@ -11,7 +11,7 @@ An app for aspiring music students that makes music education collaborative, fun
 
 
 ## Install Link
-*Come back to me!!
+Unfortunately I cannot attach an install link at the moment, but my profile on Stardance (@adobhi) DOES contain a one minute video walkthrough of my project.
 
 ## Screenshots
 
