@@ -10,8 +10,37 @@ An app for aspiring music students that makes music education collaborative, fun
 * **Data & Cloud Connectivity:** The app connects to **Firebase Cloud Database/Authentication**. This connection is strictly used to authenticate user accounts and securely sync user-generated profile data so it is saved across sessions. No data is shared with third parties or used for tracking purposes!
 
 
-## Install Link
-Unfortunately I cannot attach an install link at the moment, but my profile on Stardance (@adobhi) DOES contain a one minute video walkthrough of my project.
+## Development Setup & Local Reproduction
+
+Here is a one minute walkthrough of the app:
+https://www.youtube.com/watch?v=KWcRyOvhUOo&feature=youtu.be
+
+OR ALTERNATIVELY, you could try it out yourself!
+
+Since this application cannot be published directly to the App Store without an active Apple Developer Account, follow these steps to set up the development environment and run the project locally on your machine.
+
+### 📋 Prerequisites
+* **macOS**: A computer running macOS is required to compile iOS apps.
+* **Xcode**: The latest version of Xcode installed via the Mac App Store.
+
+### Firebase Configuration Setup
+This project utilizes **Firebase Auth and Firestore** for user logins. Because security configuration files (`GoogleService-Info.plist`) are git-ignored, you must link your own Firebase instance to run the build:
+
+1. Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project.
+2. Click the **iOS+** button to register a new Apple App. Use a mock bundle ID (e.g., `com.yourname.NoteHop`).
+3. Download the generated `GoogleService-Info.plist` file.
+4. Drag and drop your `GoogleService-Info.plist` file directly into the root folder of the Xcode project hierarchy, ensuring "Copy items if needed" is checked.
+5. In your Firebase Console, turn on **Email/Password Authentication** and create a **Firestore Database** in test mode.
+
+### Launching the App
+1. Clone this repository to your Mac terminal:
+   ```bash
+   git clone https://github.com
+   ```
+2. Open Xcode, select **File > Open...**, and open the project directory.
+3. Wait for Xcode's **Swift Package Manager (SPM)** to automatically download the Firebase dependencies listed in the project.
+4. Choose an iPhone simulator from the top toolbar scheme and press **Cmd + R** to build and run.
+
 
 ## Screenshots
 
