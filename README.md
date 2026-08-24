@@ -19,7 +19,7 @@ OR ALTERNATIVELY, you could try it out yourself!
 
 Since this application cannot be published directly to the App Store without an active Apple Developer Account, follow these steps to set up the development environment and run the project locally on your machine.
 
-### 📋 Prerequisites
+### Prerequisites
 * **macOS**: A computer running macOS is required to compile iOS apps.
 * **Xcode**: The latest version of Xcode installed via the Mac App Store.
 
